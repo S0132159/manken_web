@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Klee+One:wght@400;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-heading: "Dela Gothic One", system-ui, sans-serif;
+  --font-body: "Klee One", "Chalkboard SE", "Comic Sans MS", cursive, sans-serif;
+}
+
+body {
+  background-color: #FFDE00;
+  margin: 0;
+  height: 100%;
+}
+
+html {
+  height: 100%;
+}
+
+.comic-panel {
+  @apply border-8 border-black bg-white relative;
+  box-shadow: 10px 10px 0px 0px rgba(0,0,0,1);
+}
+
+.comic-scroll::-webkit-scrollbar {
+  width: 14px;
+}
+.comic-scroll::-webkit-scrollbar-track {
+  background: #fdf6e3;
+  border-left: 4px solid black;
+}
+.comic-scroll::-webkit-scrollbar-thumb {
+  background-color: black;
+  border: 2px solid #fdf6e3;
+}
