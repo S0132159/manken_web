@@ -36,7 +36,7 @@ export default function Carousel({ isPaused }: { isPaused: boolean }) {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 1.05 }}
             transition={{ duration: 0.4 }}
-            className="w-full h-full object-cover grayscale opacity-80 mix-blend-multiply"
+            className="w-full h-full object-cover"
             alt="活動照片"
           />
         </AnimatePresence>
