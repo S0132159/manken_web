@@ -14,8 +14,6 @@ export default function Hero({ isPaused }: { isPaused: boolean }) {
         </h1>
         <div className="flex gap-4 font-bold text-lg font-sans">
           <span className="underline decoration-4 underline-offset-4">HOME</span>
-          <span>GALLERY</span>
-          <span>TIMELINE</span>
         </div>
       </motion.header>
       <div className="w-full mt-2">

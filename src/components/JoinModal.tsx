@@ -4,11 +4,14 @@ import { useState } from 'react';
 
 export default function JoinModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const form = e.currentTarget;
     
-    const formData = new FormData(e.currentTarget);
+    const formData = new FormData(form);
     const payload = {
       studentId: formData.get('studentId'),
       name: formData.get('name'),
@@ -16,8 +19,11 @@ export default function JoinModal({ isOpen, onClose }: { isOpen: boolean; onClos
       reason: formData.get('reason'),
     };
 
+    setLoading(true);
+    setErrorMsg("");
+
     try {
-      const response = await fetch('/api/join', {
+      const response = await fetch('https://mankenweb-production.up.railway.app/api/join', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
@@ -25,17 +31,20 @@ export default function JoinModal({ isOpen, onClose }: { isOpen: boolean; onClos
 
       if (response.ok) {
         setSubmitted(true);
+        form.reset();
         setTimeout(() => {
           setSubmitted(false);
           onClose();
         }, 3000);
       } else {
-        const errData = await response.json();
-        alert(`送出失敗: ${errData.error || '未知錯誤'}`);
+        const errData = await response.json().catch(() => ({}));
+        setErrorMsg(errData.error || '未知錯誤，請稍後再試');
       }
     } catch (error) {
       console.error('連線錯誤:', error);
-      alert('無法連線至伺服器');
+      setErrorMsg('無法連線至伺服器，請檢查網路狀態');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -99,8 +108,16 @@ export default function JoinModal({ isOpen, onClose }: { isOpen: boolean; onClos
                   </div>
 
                   <div className="pt-6">
-                    <button type="submit" className="w-full bg-black text-white p-4 text-2xl font-black uppercase hover:bg-white hover:text-black hover:border-black border-4 border-black transition-colors">
-                      送出！
+                    {errorMsg && <p className="text-red-500 font-bold mb-2">❌ {errorMsg}</p>}
+                    <button type="submit" disabled={loading} className="w-full bg-black text-white p-4 text-2xl font-black uppercase hover:bg-white hover:text-black hover:border-black border-4 border-black transition-colors disabled:opacity-50 disabled:hover:bg-black disabled:hover:text-white disabled:cursor-not-allowed flex items-center justify-center gap-2">
+                      {loading ? (
+                         <>
+                           <div className="w-6 h-6 border-4 border-t-transparent border-white rounded-full animate-spin disabled-spin-border"></div>
+                           傳送中...
+                         </>
+                      ) : (
+                         "送出！"
+                      )}
                     </button>
                   </div>
                 </form>
