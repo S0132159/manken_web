@@ -1,9 +1,9 @@
 export default function Activities() {
   const pastEvents = [
-    { title: "秋季同人展參展", date: "10/12" },
-    { title: "《排球少年》分鏡解析", date: "11/05" },
-    { title: "社刊發佈聖誕派對", date: "12/20" },
-    { title: "漫畫分鏡工作坊", date: "01/15" },
+    { title: "極短篇漫畫大賽", date: "05/27" },
+    { title: "《超時空輝耀姬!》分鏡解析", date: "06/03" },
+    { title: "秋季FF同人展參展", date: "07/22" },
+    { title: "動畫分鏡工作坊", date: "09/15" },
   ];
 
   return (

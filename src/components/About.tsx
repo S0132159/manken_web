@@ -2,9 +2,9 @@ import { motion } from 'motion/react';
 
 export default function About() {
   const items = [
-    { text: '專研漫畫分鏡、上色與劇本創作。這裡不僅是畫畫，更是故事的發源地。' },
-    { text: '提供一個無壓力的同好交流空間，結交志同道合的夥伴！' },
-    { text: '本學期目標：完成一部社團原創合輯，並於期末校內大展亮相！' }
+    { text: '專研漫畫分鏡、上色與劇本創作。你能在這裡學到骨架、透視、打光、構圖等必備技巧。' },
+    { text: '漫研社辦各種題材的漫畫、輕小說、同人本甚至畫冊,這裡一定能找到有共同興趣的夥伴！' },
+    { text: '本學期目標：完成一部社團原創短篇動畫，並於期末成果發表會亮相！' }
   ];
 
   return (
@@ -13,8 +13,8 @@ export default function About() {
         <h2 className="text-3xl lg:text-4xl font-black mb-6 border-b-4 border-black inline-block font-sans max-w-max">關於我們</h2>
         <div className="space-y-6">
           {items.map((item, i) => (
-            <motion.div 
-              key={i} 
+            <motion.div
+              key={i}
               className="flex gap-4 items-start"
               whileHover={{ x: 4 }}
             >
