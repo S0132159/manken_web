@@ -3,9 +3,9 @@ import { motion, AnimatePresence } from 'motion/react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const IMAGES = [
-  "https://images.unsplash.com/photo-1541562232579-512a21360020?w=1200&h=600&fit=crop", // Drawing/Studio
-  "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=1200&h=600&fit=crop", // Anime figures/toys
-  "https://images.unsplash.com/photo-1612480797701-3e0fde408af3?w=1200&h=600&fit=crop", // Manga bookshelf
+  "https://res.cloudinary.com/dj2zpa7cq/image/upload/v1781714281/LINE_ALBUM_%E5%B9%B3%E5%B8%B8%E6%BC%AB%E7%95%AB%E7%A4%BE%E8%AA%B2%E7%85%A7%E7%89%87_260618_1_bmyuug.jpg",
+  "https://res.cloudinary.com/dj2zpa7cq/image/upload/v1781714280/LINE_ALBUM_%E5%B9%B3%E5%B8%B8%E6%BC%AB%E7%95%AB%E7%A4%BE%E8%AA%B2%E7%85%A7%E7%89%87_260618_2_ftpgxj.jpg",
+  "https://res.cloudinary.com/dj2zpa7cq/image/upload/v1781714280/LINE_ALBUM_%E5%B9%B3%E5%B8%B8%E6%BC%AB%E7%95%AB%E7%A4%BE%E8%AA%B2%E7%85%A7%E7%89%87_260618_3_venvpi.jpg",
 ];
 
 export default function Carousel({ isPaused }: { isPaused: boolean }) {
