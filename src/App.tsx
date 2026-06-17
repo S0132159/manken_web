@@ -10,10 +10,6 @@ export default function App() {
 
   return (
     <div className="min-h-screen font-sans text-black overflow-x-hidden selection:bg-[#E91E63] selection:text-white bg-[#FFDE00] p-4 md:p-8 flex flex-col relative w-full border-[12px] border-black">
-      {/* Static Manga Elements */}
-      <div className="hidden lg:block absolute top-20 right-10 text-8xl font-black opacity-20 rotate-12 z-0 pointer-events-none italic uppercase leading-none">JOIN!</div>
-      <div className="hidden lg:block absolute bottom-[20%] left-10 text-8xl font-black opacity-20 -rotate-12 z-0 pointer-events-none italic uppercase leading-none">GO!</div>
-
       <main className="relative z-10 max-w-5xl mx-auto w-full flex-1 flex flex-col gap-6 md:gap-8">
         <Hero isPaused={isModalOpen} />
 
